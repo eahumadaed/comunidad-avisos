@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Publicaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="!cargando">
+    <ion-item *ngFor="let aviso of avisos">
+      <ion-thumbnail slot="start">
+        <img [src]="aviso.imagen || 'assets/placeholder-image.png'">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ aviso.titulo }}</h2>
+        <p>{{ aviso.fecha | fecha }}</p>
+      </ion-label>
+      <ion-button fill="clear" slot="end" (click)="eliminarAviso(aviso)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-spinner *ngIf="cargando" name="crescent"></ion-spinner>
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/crear-aviso">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

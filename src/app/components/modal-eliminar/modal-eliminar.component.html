@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Confirmar eliminación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>¿Deseas eliminar el aviso "{{ aviso.titulo }}"?</ion-label>
+  </ion-item>
+
+  <ion-button expand="full" color="danger" (click)="confirmarEliminacion()">Eliminar</ion-button>
+  <ion-button expand="full" (click)="cancelar()">Cancelar</ion-button>
+</ion-content>
